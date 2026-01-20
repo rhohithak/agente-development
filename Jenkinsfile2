@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('Build') {
             agent{
-                label 'dev && java'
+                label 'dev'
             }
             steps {
             
@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Test') {
             agent{
-                label 'test && java'
+                label 'test'
             }
             steps {
               echo "Testing ... in the node ${NODE_NAME}  and in the executor ${EXECUTOR_NUMBER}"
@@ -24,7 +24,7 @@ pipeline {
         }
         stage('Deploy') {
             agent{
-                label 'prod && java'
+                label 'prod'
             }
             steps {
              echo "Deploying ... in the node ${NODE_NAME}  and in the executor ${EXECUTOR_NUMBER}"  
